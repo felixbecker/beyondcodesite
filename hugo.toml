@@ -2,3 +2,13 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Beyond Code Podcast'
 theme = 'beyondcode-theme'
+
+[[menu.main]]
+identifier = 'episodes'
+name = 'Episoden'
+url = '/episodes'
+
+[[menu.main]]
+identifier = 'about'
+name = 'About'
+url = '/about'
