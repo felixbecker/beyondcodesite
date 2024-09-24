@@ -1,7 +1,20 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+
+{{ if .IsHome }}
+<!-- Jumbotron -->
+<section class="bg-blue-100 py-24 text-center">
+  <div class="container mx-auto">
+    <h1 class="text-5xl font-bold text-gray-800 mb-4">
+      beyond code podcast
+    </h1>
+    <p class="text-lg text-gray-600">Exploring the world of software development, coding trends, and more.</p>
+  </div>
+</section>
+{{ end }}
+
+{{ .Content }}
+{{ range site.RegularPages }}
+<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+{{ .Summary }}
+{{ end }}
 {{ end }}
