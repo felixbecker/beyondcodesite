@@ -1,7 +1,36 @@
-<div class="container mx-auto flex items-center justify-between text-red-500">
-  <!-- <div class="container mx-auto h-[90px] flex items-center justify-between border-b border-b-gray"> #}-->
-  <a class="text-[24px] font-bold" href="/"> {{ .Site.Title }} </a>
-  <div class="flex gab-[20px]">
-    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+<header class="sticky top-0 bg-white z-50 transition-shadow duration-300 shadow-none animate-shadow"></header>
+<div class="container mx-auto flex items-center justify-between p-4">
+
+  <!-- Logo on the left (Inline SVG) -->
+  <a class="flex items-center space-x-2" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79l4.79 4.79v.99c0 .55.45 1 1 1h1v3.94zM11 10V4.07c.32-.05.66-.07 1-.07s.68.02 1 .07V10h-2zm1 9.93V15h1c.55 0 1-.45 1-1v-.99l4.79-4.79c.13.58.21 1.17.21 1.79 0 4.08-3.05 7.44-7 7.93z" />
+    </svg>
+  </a>
+
+  <!-- Centered title -->
+  <h1 class="text-2xl font-light text-gray-800 flex-1 text-center">
+    beyond code podcast
+  </h1>
+
+  <!-- Menu on the right -->
+  <div class="flex items-center space-x-8">
+    <nav class="flex space-x-6">
+      {{ $menu := .Site.Menus.main }}
+      {{ if $menu }}
+      {{ range $menu }}
+      <a class="text-gray-700 hover:text-gray-900 font-medium" href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+      {{ end }}
+    </nav>
+    <!-- Small SVG logo on the right -->
+    <a href="/" class="ml-4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-700 hover:text-gray-900" viewBox="0 0 24 24"
+        fill="currentColor">
+        <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 16h-2v-2h2v2zm1-4.41V14h-4v-2h1v-2a2 2 0 114 0v3.59z" />
+      </svg>
+    </a>
   </div>
 </div>
+</header>
