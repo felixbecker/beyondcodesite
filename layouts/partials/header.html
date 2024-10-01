@@ -1,10 +1,22 @@
-<header>
-  <h1>{{ .Site.Title }}</h1>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/about/">Über Uns</a></li>
-    </ul>
-  </nav>
-</header>
+<!-- Navigation Bar -->
+<nav class="sticky top-0 bg-white shadow-md py-4">
+  <div class="container mx-auto flex justify-between items-center w-2/3">
+    <!-- Logo / Title -->
+    <a href="/" class="text-2xl font-extralight text-gray-800">byndcode podcast</a>
+
+    <!-- Dynamic Menu Items -->
+    <div class="space-x-6">
+      {{ range .Site.Menus.main }}
+      {{ if eq .Identifier "episodes" }}
+      <a href="{{ .URL }}" class="btn">
+        {{ .Name }}
+      </a>
+      {{ else }}
+      <a href="{{ .URL }}" class="text-gray-700 hover:text-cyan-500">
+        {{ .Name }}
+      </a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</nav>

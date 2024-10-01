@@ -1,4 +1,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ .Site.Title }}</title>
-{{ $styles := resources.Get "css/main.css" | postCSS | minify | fingerprint }}
+{{- $styles := resources.Get "css/main.css" | postCSS (dict "config" "./postcss.config.js") -}}
+{{- if hugo.IsServer }}
+{{ $styles = $styles | resources.ExecuteAsTemplate (printf "css/main.dev.%v.css" now.UnixMilli) .}}
+{{ else }}
+{{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+{{ end -}}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
