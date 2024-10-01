@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h1>Willkommen auf meiner Webseite</h1>
+<p>Dies ist die Startseite.</p>
+
+<section>
+  <h2>Neueste Artikel</h2>
+  <ul>
+    {{ range .Pages }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
