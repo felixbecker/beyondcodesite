@@ -1,18 +1,18 @@
 <!-- Navigation Bar -->
-<nav class="sticky top-0 bg-white shadow-md py-4">
-  <div class="container mx-auto flex justify-between items-center w-2/3">
+<nav id="header" class="sticky z-30 top-0 py-4 bg-transparent">
+  <div id="nav-content" class="container mx-auto flex justify-between items-center w-2/3">
     <!-- Logo / Title -->
-    <a href="/" class="text-2xl font-extralight text-gray-800">byndcode podcast</a>
+    <a href="/" class="text-2xl font-extralight text-white toggleColour">bynd code podcast</a>
 
     <!-- Dynamic Menu Items -->
     <div class="space-x-6">
       {{ range .Site.Menus.main }}
       {{ if eq .Identifier "episodes" }}
-      <a href="{{ .URL }}" class="btn">
+      <a href="{{ .URL }}" class="btn" id="navAction">
         {{ .Name }}
       </a>
       {{ else }}
-      <a href="{{ .URL }}" class="text-gray-700 hover:text-cyan-500">
+      <a href="{{ .URL }}" class="text-white hover:text-cyan-600 toggleColour">
         {{ .Name }}
       </a>
       {{ end }}

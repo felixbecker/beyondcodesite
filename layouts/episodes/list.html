@@ -1,0 +1,13 @@
+<!-- layouts/episodes/list.html -->
+{{ define "main" }}
+<section>
+  <h1 class="text-2xl font-bold">Episoden</h1>
+  <ul>
+    {{ range where .Site.Pages "Type" "episode" }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

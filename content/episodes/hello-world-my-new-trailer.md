@@ -1,6 +1,12 @@
 +++
-title = 'Hello World My New Trailer'
-date = 2024-10-02T21:40:38+02:00
-draft = true
+title = "Episode 1: Die Reise eines Entwicklers"
+guest = "John Doe"
+description = "Erfahre, wie dieser Entwickler den Übergang von Anfänger zu Profi gemeistert hat."
+image = "https://via.placeholder.com/150"
+date = 2024-01-01
+type = "episode" 
 +++
 
+## Episode 1
+
+Das ist meine Trailerfolge!

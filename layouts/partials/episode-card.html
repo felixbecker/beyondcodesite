@@ -1,0 +1,21 @@
+<div class="bg-white shadow-lg rounded-lg overflow-hidden relative w-64 flex flex-col items-center">
+  <!-- Bild -->
+  <div class="w-full">
+    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-40 object-cover">
+  </div>
+  <!-- Text -->
+  <div class="p-4 text-center">
+    <h4 class="text-lg font-bold">bynd code // {{ .Params.guest }}</h4>
+    <h3 class="text-lg font-semibold mt-2">{{ .Title }}</h3>
+    <p class="text-gray-600 mt-2 text-sm">{{ .Params.description | truncate 100 }}</p>
+  </div>
+  <!-- Link zur Episode -->
+  <a href="{{ .RelPermalink }}" class="absolute inset-0"></a>
+  <!-- Play-Button -->
+  <div class="absolute bottom-2 right-2 bg-cyan-900 p-2 rounded-full">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="white"
+      stroke-width="2">
+      <polygon points="5 3, 19 12, 5 21" fill="white" />
+    </svg>
+  </div>
+</div>

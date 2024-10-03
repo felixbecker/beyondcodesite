@@ -5,7 +5,7 @@
   {{ partial "head.html" . }}
 </head>
 
-<body class="bg-[#dfe7e9]">
+<body>
   {{ partial "header.html" . }}
 
   <main>
@@ -14,5 +14,73 @@
 
   {{ partial "footer.html" . }}
 </body>
+<script>
+  // Cache frequently accessed elements
+  let scrollpos = window.scrollY;
+  let header = document.getElementById("header");
+  let navcontent = document.getElementById("nav-content");
+  let navaction = document.getElementById("navAction");
+  let toToggle = document.querySelectorAll(".toggleColour");
+
+  const transitionDuration = "0.3s";
+  const dropShadowWitdh = "3px";
+  const bgColorClass = "bg-[#dfe7e9]";
+
+  // Set transition on styles (smooth effect)
+  header.style.transition = `background-color ${transitionDuration} ease, box-shadow ${transitionDuration} ease`;
+  navcontent.style.transition = `background-color ${transitionDuration} ease`;
+  navaction.style.transition = `background-color ${transitionDuration} ease, color ${transitionDuration} ease`;
+
+  // Function to update the scroll state
+  function handleScroll() {
+    scrollpos = window.scrollY;
+
+    if (scrollpos > 10) {
+      if (!header.classList.contains(bgColorClass)) {
+        // Add classes when scrolled
+        header.classList.remove("bg-transparent");
+        header.classList.add("bg-[#dfe7e9]");
+        navaction.classList.remove("bg-[#dfe7e9]");
+        navaction.classList.add("gradient", "text-white");
+        navaction.classList.remove("text-gray-700");
+
+        // Update toggle color
+        toToggle.forEach(el => {
+          el.classList.add("text-gray-700");
+          el.classList.remove("text-white");
+        });
+
+        // Add shadow
+        header.style.boxShadow = `0 ${dropShadowWitdh} 5px rgba(0, 0, 0, 0.3)`;
+        navcontent.classList.remove("bg-gray-100");
+        header.classList.add("bg-[#dfe7e9]");
+      }
+    } else {
+      if (header.classList.contains(bgColorClass)) {
+        // Reset classes when scrolled back to top
+        header.classList.remove(bgColorClass);
+        navaction.classList.remove("gradient", "text-white");
+        navaction.classList.add("text-gray-700");
+
+        // Reset toggle color
+        toToggle.forEach(el => {
+          el.classList.add("text-white");
+          el.classList.remove("text-gray-700");
+        });
+
+        // Remove shadow
+        header.style.boxShadow = "none";
+        header.classList.add("bg-transparent");
+
+      }
+    }
+  }
+
+  // Scroll event listener using requestAnimationFrame for smoothness
+  window.addEventListener('scroll', () => {
+    window.requestAnimationFrame(handleScroll);
+  });
+
+</script>
 
 </html>
