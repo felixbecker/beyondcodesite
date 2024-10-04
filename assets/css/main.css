@@ -1,0 +1,30 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  .btn {
+    @apply bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-800 transition duration-300;
+  }
+
+  .btn-large {
+    @apply px-6 py-3 text-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-cyan-500 text-cyan-200
+    /* text-cyan-500 text-cyan-800*/
+    bg-white hover:bg-cyan-500 hover:text-white;
+  }
+}
+
+@layer utilities {
+  .vignette {
+    @apply bg-no-repeat bg-center bg-cover;
+    background-image: radial-gradient(circle, rgba(6, 182, 212, 1) 10%, rgba(21, 94, 117, 1));
+  }
+}
+
+body {
+  @apply bg-[#dfe7e9];
+}

@@ -28,10 +28,6 @@ static/css/
 static/js/
 static/img/
 
-# Tailwind or other preprocessed CSS
-/assets/css/*.css
-/assets/css/*.map
-/assets/js/*.map
 
 # PostCSS and Tailwind cache files
 .postcssrc
