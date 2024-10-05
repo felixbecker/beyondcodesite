@@ -1,10 +1,6 @@
-<!-- Navigation Bar -->
-<nav id="header" class="sticky z-30 top-0 py-4 bg-transparent">
+<!-- <nav id="header" class="sticky z-30 top-0 py-4 bg-transparent">
   <div id="nav-content" class="container mx-auto flex justify-between items-center w-2/3">
-    <!-- Logo / Title -->
     <a href="/" class="text-2xl font-extralight text-white toggleColour">bynd code podcast</a>
-
-    <!-- Dynamic Menu Items -->
     <div class="space-x-6">
       {{ range .Site.Menus.main }}
       {{ if eq .Identifier "episodes" }}
@@ -13,6 +9,34 @@
       </a>
       {{ else }}
       <a href="{{ .URL }}" class="text-white hover:text-cyan-600 toggleColour">
+        {{ .Name }}
+      </a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</nav> -->
+<!-- Navigation Bar -->
+<nav id="header"
+  class="sticky z-30 top-0 py-4 {{ if or .IsHome .Params.isHome }}bg-transparent{{ else }}bg-white shadow-md{{ end }}">
+  <div id="nav-content" class="container mx-auto flex justify-between items-center w-2/3">
+    <!-- Logo / Title -->
+    <a href="/"
+      class="text-2xl font-extralight {{ if or .IsHome .Params.isHome }}text-white{{ else }}text-gray-800{{ end }} toggleColour">
+      bynd code podcast
+    </a>
+
+    <!-- Dynamic Menu Items -->
+    <div class="space-x-6">
+      {{ range .Site.Menus.main }}
+      {{ if eq .Identifier "episodes" }}
+      <a href="{{ .URL }}" class="btn {{ if or $.IsHome $.Params.isHome }}text-white{{ else }}text-gray-800{{ end }}"
+        id="navAction">
+        {{ .Name }}
+      </a>
+      {{ else }}
+      <a href="{{ .URL }}"
+        class="{{ if or $.IsHome $.Params.isHome }}text-white hover:text-cyan-600{{ else }}text-gray-800 hover:text-cyan-500{{ end }} toggleColour">
         {{ .Name }}
       </a>
       {{ end }}

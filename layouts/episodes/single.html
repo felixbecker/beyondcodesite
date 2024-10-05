@@ -1,8 +1,16 @@
-<!-- layouts/episodes/single.html -->
 {{ define "main" }}
-<article>
-  <h1>{{ .Title }}</h1>
-  <p>{{ .Params.description }}</p>
-  <div>{{ .Content }}</div>
-</article>
+<section class="pt-10">
+  <div class="container mx-auto w-2/3">
+    <article>
+      <h1 class="text-4xl font-bold mb-6 font-serif">{{ .Title }}</h1>
+      <h3>--- single.html ---</h3>
+      <div class="content mb-8">
+        {{ .Content }}
+      </div>
+    </article>
+    <div class="text-cyan-700">
+      <a href="/episodes" class="hover:text-cyan-500">Zurück zu allen Episoden</a>
+    </div>
+  </div>
+</section>
 {{ end }}

@@ -24,13 +24,9 @@
         <button class="bg-cyan-700 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors">
           Alle Episoden anhören
         </button>
-
-
       </div>
       <p class="mt-4 text-xl">Host Felix Becker.</p>
     </div>
-
-    <!-- Inline SVG -->
     <div class="md:w-1/2 flex justify-center mt-6 items-center md:mt-0 ">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" viewBox="0 0 64 64" fill="none" stroke="currentColor"
         stroke-width="2">
@@ -45,5 +41,6 @@
 </section>
 
 {{ partial "episode-cards.html" . }}
+{{ partial "socials.html" }}
 
 {{ end }}
