@@ -5,26 +5,9 @@
 
     <div class="space-y-8">
       {{ $index := 0 }}
-      {{ range where .Site.Pages "Type" "episodes" }}
-      <div
-        class="flex {{ if modBool $index 2 }}flex-row-reverse{{ end }} items-center bg-white rounded-lg shadow-lg p-6 space-x-8">
-
-        <!-- Episode Image -->
-        <div class="w-1/4">
-          {{ with .Params.image }}
-          <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-auto rounded-lg">
-          {{ end }}
-        </div>
-
-        <!-- Episode Text Content -->
-        <div class="w-3/4">
-          <a href="{{ .RelPermalink }}" class="text-cyan-700 hover:text-cyan-500 text-xl font-bold">{{ .Title }}</a>
-          <p class="mt-2 text-gray-700">{{ .Summary }}</p>
-          <a href="{{ .RelPermalink }}" class="mt-4 inline-block text-cyan-600 hover:text-cyan-400">Mehr erfahren
-            &rarr;</a>
-        </div>
-
-      </div>
+      {{ range where .Site.RegularPages "Type" "episodes" }}
+      <h4>{{ .Title }}</h4>
+      {{ partial "episodes/episode-card.html" (dict "episode" . "index" $index) }}
       {{ $index = add $index 1 }}
       {{ end }}
     </div>

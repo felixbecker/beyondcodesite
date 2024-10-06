@@ -1,0 +1,24 @@
+<div
+  class="flex {{ if modBool .index 2 }}flex-row-reverse{{ end }} items-center bg-white rounded-lg shadow-lg p-6 space-x-8">
+
+  <!-- Episode Image -->
+  <div class="w-1/4">
+    {{ $episode := .episode }}
+    {{ with $episode.Params.image }}
+    <img src="{{ . }}" alt="{{ $episode.Title }} mit {{ $episode.Params.guest }}" class="w-full h-auto rounded-lg">
+    {{ else }}
+    <!-- Fallback Bild anzeigen, wenn kein Bild vorhanden ist -->
+    <img src="/images/default.jpg" alt="bynd podcast" class="w-full h-auto rounded-lg">
+    {{ end }}
+  </div>
+
+  <!-- Episode Text Content -->
+  <div class="w-3/4">
+    <a href="{{ $episode.RelPermalink }}" class="text-cyan-700 hover:text-cyan-500 text-xl font-bold">{{ $episode.Title
+      }}</a>
+    <p class="mt-2 text-gray-700">{{ $episode.Params.description }}</p>
+    <a href="{{ $episode.RelPermalink }}" class="mt-4 inline-block text-cyan-600 hover:text-cyan-400">Mehr erfahren
+      &rarr;</a>
+  </div>
+
+</div>
