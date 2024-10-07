@@ -1,21 +1,29 @@
 <div
-  class="flex {{ if modBool .index 2 }}flex-row-reverse{{ end }} items-center bg-white rounded-lg shadow-lg p-6 space-x-8">
+  class="flex {{ if modBool .index 2 }}flex-row-reverse{{ end }} items-start bg-white rounded-lg shadow-lg space-x-8">
 
   <!-- Episode Image -->
-  <div class="w-1/4">
+  <div class="w-1/4 h-full">
     {{ $episode := .episode }}
     {{ with $episode.Params.image }}
-    <img src="{{ . }}" alt="{{ $episode.Title }} mit {{ $episode.Params.guest }}" class="w-full h-auto rounded-lg">
+    <img src="{{ . }}" alt="{{ $episode.Title }} mit {{ $episode.Params.guest }}" class="w-full h-full object-cover">
     {{ else }}
     <!-- Fallback Bild anzeigen, wenn kein Bild vorhanden ist -->
-    <img src="/images/default.jpg" alt="bynd podcast" class="w-full h-auto rounded-lg">
+    <img src="/images/default.jpg" alt="bynd podcast" class="w-full h-full object-cover rounded-l-lg">
     {{ end }}
   </div>
 
   <!-- Episode Text Content -->
-  <div class="w-3/4">
+  <div class="w-3/4 p-6">
     <a href="{{ $episode.RelPermalink }}" class="text-cyan-700 hover:text-cyan-500 text-xl font-bold">{{ $episode.Title
       }}</a>
+    <div class="flex items-center mt-2">
+      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3zM5 5a4 4 0 118 0v6a4 4 0 01-8 0V5z"></path>
+        <path d="M3 10a1 1 0 011 1v1a6 6 0 0012 0v-1a1 1 0 112 0v1a8 8 0 01-16 0v-1a1 1 0 011-1z"></path>
+        <path d="M10 18a2 2 0 002-2H8a2 2 0 002 2z"></path>
+      </svg>
+      Featuring: {{ $episode.Params.guest }}
+    </div>
     <p class="mt-2 text-gray-700">{{ $episode.Params.description }}</p>
     <a href="{{ $episode.RelPermalink }}" class="mt-4 inline-block text-cyan-600 hover:text-cyan-400">Mehr erfahren
       &rarr;</a>
