@@ -10,10 +10,7 @@
         der Tech-Industrie</h1>
 
       <div class="flex flex-col md:flex-row items-center justify-center mt-6 space-y-4 md:space-y-0 md:space-x-4">
-        <!-- Link für die letzte Episode -->
-        {{ $episodesMenu := index (where .Site.Menus.main "identifier" "episodes") 0 }}
-        <pre>{{ printf "%#v"  }}</pre>
-        {{ $latestEpisode := (index (sort (where .Site.RegularPages "Type" "episodes") "Date" "desc") 0) }}
+        {{ $latestEpisode := index (sort (where .Site.RegularPages "Type" "episodes") "Date" "desc") 0 }}
         <a href="{{ $latestEpisode.RelPermalink }}"
           class="flex items-center bg-cyan-900 text-white px-6 py-3 rounded-lg hover:bg-cyan-400 hover:text-gray-700 transition-colors">
           <!-- Play SVG Icon -->
