@@ -6,7 +6,6 @@
     <div class="space-y-8">
       {{ $index := 0 }}
       {{ range where .Site.RegularPages "Type" "episodes" }}
-      <h4>{{ .Title }}</h4>
       {{ partial "episodes/episode-card.html" (dict "episode" . "index" $index) }}
       {{ $index = add $index 1 }}
       {{ end }}

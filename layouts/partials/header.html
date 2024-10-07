@@ -1,21 +1,4 @@
-<!-- <nav id="header" class="sticky z-30 top-0 py-4 bg-transparent">
-  <div id="nav-content" class="container mx-auto flex justify-between items-center w-2/3">
-    <a href="/" class="text-2xl font-extralight text-white toggleColour">bynd code podcast</a>
-    <div class="space-x-6">
-      {{ range .Site.Menus.main }}
-      {{ if eq .Identifier "episodes" }}
-      <a href="{{ .URL }}" class="btn" id="navAction">
-        {{ .Name }}
-      </a>
-      {{ else }}
-      <a href="{{ .URL }}" class="text-white hover:text-cyan-600 toggleColour">
-        {{ .Name }}
-      </a>
-      {{ end }}
-      {{ end }}
-    </div>
-  </div>
-</nav> -->
+
 <!-- Navigation Bar -->
 <nav id="header"
   class="sticky z-30 top-0 py-4 {{ if or .IsHome .Params.isHome }}bg-transparent{{ else }}bg-white shadow-md{{ end }}">
@@ -43,4 +26,5 @@
       {{ end }}
     </div>
   </div>
+
 </nav>

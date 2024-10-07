@@ -19,3 +19,10 @@ identifier = 'episodes'
 name = 'Episoden'
 url = '/episodes/'
 weight = 3
+
+[build]
+writeStats = true
+
+
+[esbuild]
+target = 'es6'
