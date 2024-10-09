@@ -1,0 +1,44 @@
+<section class="vignette relative -mt-6 lg:-mt-20 text-white h-[75vh] flex items-center justify-center">
+    <div class="container mx-auto w-2/3 text-center md:flex md:items-center md:justify-between">
+      <!-- Text Section -->
+      <div class="mt-5 text-content md:w-1/2">
+        <h1 class="text-5xl w-[35vw] text-left pl-10 leading-snug font-serif font-bold">
+          Tauch ein in die Welt der Macher!
+          Geschichten und Einblicke aus
+          der Tech-Industrie</h1>
+  
+        <div class="flex flex-col md:flex-row items-center justify-center mt-6 space-y-4 md:space-y-0 md:space-x-4">
+          {{ $latestEpisode := index (sort (where .Site.RegularPages "Type" "episodes") "Date" "desc") 0 }}
+          <a href="{{ $latestEpisode.RelPermalink }}"
+            class="flex items-center bg-cyan-900 text-white px-6 py-3 rounded-lg hover:bg-cyan-400 hover:text-gray-700 transition-colors">
+            <!-- Play SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="white"
+              stroke-width="2">
+              <polygon points="5 3, 19 12, 5 21" fill="white" />
+            </svg>
+            Letzte Folge anhören
+          </a>
+  
+          <!-- Link zu allen Episoden -->
+  
+  
+          <a href="/episodes/" class=" bg-cyan-700 text-white
+            px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors">
+            Alle Episoden anhören
+          </a>
+        </div>
+  
+        <p class="mt-4 text-xl">Host Felix Becker.</p>
+      </div>
+      <div class="md:w-1/2 flex justify-center mt-6 items-center md:mt-0 ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" viewBox="0 0 64 64" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <circle cx="32" cy="32" r="30" stroke="black" fill="#D9E6F2" />
+          <circle cx="32" cy="36" r="10" stroke="black" fill="white" />
+          <path d="M12 28 h8 v12 h-8 z" fill="black" />
+          <path d="M44 28 h8 v12 h-8 z" fill="black" />
+          <path d="M20 28 q12 -12 24 0" stroke="black" fill="none" />
+        </svg>
+      </div>
+    </div>
+  </section>
